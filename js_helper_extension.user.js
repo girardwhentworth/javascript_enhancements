@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JS Helper Extension
 // @namespace    http://tampermonkey.net/
-// @version      0.2.03
+// @version      0.2.04
 // @description  try to take over the world!
 // @author       You
 // @match        http://ab.entertainmentcrave.com/lp.html?uid*&ip=*&sig=*&sigNgage=*&rnd=*&gender=*&age=*&zip=*&memberLocationID=*&showTimerOverride=*&hasRedesign=*
@@ -46,7 +46,9 @@
 		console.log("|--- JS ---| Window has focus; firing main function.");
 
 		// Reset the inactivity timer
+		console.log("|--- JS ---| Clearing the current timeout.");
 		clearTimeout(isTimeout);
+		console.log("|--- JS ---| Restarting the timeout.");
 		startTimeout();
 		
 		// Only run if the focus is not locked
