@@ -34,10 +34,10 @@
 	// If activityTimer has run out, reload the page
 	// (every onFocus will add time to the timer)
 	function startTimeout() {
-		console.log("Starting the actual timer function.");
+		console.log("|--- JS ---| Starting the timeout function.");
 		var isTimeout = setTimeout(function() {
-			console.log("Reloading the page.");
-			document.location.reload(true);
+			console.log("|--- JS ---| Reloading the page.");
+			window.top.location.reload();
 		}, inactivityTimer);
 	}
 	
