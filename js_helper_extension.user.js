@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JS Helper Extension
 // @namespace    http://tampermonkey.net/
-// @version      0.2.04
+// @version      0.2.05
 // @description  try to take over the world!
 // @author       You
 // @match        http://ab.entertainmentcrave.com/lp.html?uid*&ip=*&sig=*&sigNgage=*&rnd=*&gender=*&age=*&zip=*&memberLocationID=*&showTimerOverride=*&hasRedesign=*
@@ -34,9 +34,9 @@
 	// If activityTimer has run out, reload the page
 	// (every onFocus will add time to the timer)
 	function startTimeout() {
-		console.log("|--- JS ---| Starting the timeout function.");
+		console.log("|--- JS ---| Initializing the timeout.");
 		var isTimeout = setTimeout(function() {
-			console.log("Reloading the page.");
+			console.log("|--- JS ---| Reloading the page.");
 			document.location.reload(true);
 		}, inactivityTimer);
 	}
@@ -48,7 +48,7 @@
 		// Reset the inactivity timer
 		console.log("|--- JS ---| Clearing the current timeout.");
 		clearTimeout(isTimeout);
-		console.log("|--- JS ---| Restarting the timeout.");
+		console.log("|--- JS ---| Calling the timeout start.");
 		startTimeout();
 		
 		// Only run if the focus is not locked
