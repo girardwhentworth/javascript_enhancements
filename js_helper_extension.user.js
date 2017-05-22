@@ -16,7 +16,7 @@
 
     'use strict';
     var focusLock = false;
-	var minutes = 2.5;
+	var minutes = 1.75;
 	var minute = 60000;
 	var inactivityTimer = minute * minutes;
 	var isTimeout;
