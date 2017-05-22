@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JS Helper Extension
 // @namespace    http://tampermonkey.net/
-// @version      0.2.02
+// @version      0.2.03
 // @description  try to take over the world!
 // @author       You
 // @match        http://ab.entertainmentcrave.com/lp.html?uid*&ip=*&sig=*&sigNgage=*&rnd=*&gender=*&age=*&zip=*&memberLocationID=*&showTimerOverride=*&hasRedesign=*
@@ -36,8 +36,8 @@
 	function startTimeout() {
 		console.log("|--- JS ---| Starting the timeout function.");
 		var isTimeout = setTimeout(function() {
-			console.log("|--- JS ---| Reloading the page.");
-			window.top.location.reload();
+			console.log("Reloading the page.");
+			document.location.reload(true);
 		}, inactivityTimer);
 	}
 	
