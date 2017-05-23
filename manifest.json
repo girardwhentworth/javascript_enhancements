@@ -4,7 +4,7 @@
         "exclude_globs":    [  ],
         "include_globs":    [ "*" ],
         "js":               [ "js_helper_extension.user.js" ],
-        "matches":          [ "http://ab.entertainmentcrave.com/lp.html?uid*&ip=*&sig=*&sigNgage=*&rnd=*&gender=*&age=*&zip=*&memberLocationID=*&showTimerOverride=*&hasRedesign=*" ],
+        "matches":          [ "http://ab.entertainmentcrave.com/lp.html?uid*&ip=*&sig=*&sigNgage=*&rnd=*&gender=*&age=*&zip=*&memberLocationID=*&showTimerOverride=*&hasRedesign=*", "http://www.swagbucks.com/*" ],
         "run_at": "document_end" } ],
 	"browser_action": { "default_icon": "icon.png" },
 	"permissions": [ "tabs" ],
