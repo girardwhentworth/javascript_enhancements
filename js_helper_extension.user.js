@@ -5,11 +5,13 @@
 // @description  try to take over the world!
 // @author       You
 // @match        http://ab.entertainmentcrave.com/lp.html?uid*&ip=*&sig=*&sigNgage=*&rnd=*&gender=*&age=*&zip=*&memberLocationID=*&showTimerOverride=*&hasRedesign=*
-// @match		 http://www.swagbucks.com*
+// @match		 http://www.swagbucks.com/ncrave*
 // @grant        none
 // ==/UserScript==
 
 (function() {
+
+// @match		 http://cdn1.twistity.com/promo/*tid*euid*hasRedesign*urrMet*rock*paper*encl*utm_source*utm_medium*
 
 	console.log("|--- JS ---| Running on host " + window.location.hostname);
 
@@ -22,10 +24,11 @@
 		
 			'use strict';
 			var focusLock = false;
-			var minutes = 1.75;
+			var minutes = 3; //1.75;
 			var minute = 60000;
 			var inactivityTimer = minute * minutes;
 			var isTimeout;
+			var startTime, endTime, elapsedTotalSeconds, elapsedSeconds, elapsedMinutes;
 
 			window.addEventListener("focus", function(event) {
 
@@ -41,10 +44,19 @@
 			// (every onFocus will add time to the timer)
 			function startTimeout() {
 				console.log("|--- JS ---| Initializing the timeout.");
+				startTime = new Date();
 				var isTimeout = setTimeout(function() {
-					console.log("|--- JS ---| Reloading the page.");
+					calcTimeElapsed();
 					document.location.reload(true);
 				}, inactivityTimer);
+			}
+			
+			function calcTimeElapsed() {
+				endTime = new Date();
+				elapsedTotalSeconds = Math.floor(Math.abs(endTime - startTime) / 1000);
+				elapsedMinutes = Math.floor(elapsedTotalSeconds / 60);
+				elapsedSeconds = Math.floor(elapsedTotalSeconds % 60);
+				console.log("|--- JS ---| Elapsed time is " + elapsedMinutes + ":" + elapsedSeconds);
 			}
 			
 			function mainFunction() {
@@ -54,6 +66,7 @@
 				// Reset the inactivity timer
 				console.log("|--- JS ---| Clearing the current timeout.");
 				clearTimeout(isTimeout);
+				calcTimeElapsed();
 				console.log("|--- JS ---| Calling the timeout start.");
 				startTimeout();
 				
@@ -169,12 +182,26 @@
 			// FUNCTION check if the playlist link is in the blacklist (these playlists are broken)
 			function isBlacklisted(attr){
 				// Regex to get playlist value
+				
+				// http://player.ngage-media.com/s/?u=546d0961b0926176f4078a97&f=3&s=
+
+				
 				var plist = attr.substring(attr.indexOf("plid=")+5,attr.indexOf("$"));
+				
+				// Ngage-media doesn't follow the same 'plid=12345$' so the plist won't be right
+				var isNgage = attr.indexOf("ngage-media");
+				if (attr.indexOf("ngage-media") != -1) {
+					plist = "ngage";
+				}
+				
 				var ret = '';
+				//console.log('|--- JS ---| Found attribute ' + attr);
+				//console.log('|--- JS ---| isNgage value is ' + isNgage);
 				console.log('|--- JS ---| Found playlist ' + plist);
 				
 				switch (plist) {
 				
+					case 'ngage':
 					case '536be5107591fd847d8b456a':
 					case '566a0e7b7591fd49728b4568':
 					case '55fc58d87591fd064d8b456a':
@@ -210,14 +237,17 @@
 			
 			// Set the page to reload after X time
 			// 				   mins seconds milliseconds
-			var parentTimeout = 120 * 60 * 1000;
+			var parentTimeout = 90 * 60 * 1000;
 			console.log("|--- JS ---| Starting the timer to reload the page in " + parentTimeout / 60 / 1000 + " minutes.");
 						
 			setTimeout(function() {
-					console.log("|--- JS ---| Reloading the page.");
 					document.location.reload(true);
 				}, parentTimeout);
 				
 			break; // End of the swagbucks host code
+		
+		default:
+			console.log("|--- JS ---| Doing nothing, since we're on " + window.location.hostname);
+			break;
 	}
 })();

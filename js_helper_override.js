@@ -1192,7 +1192,7 @@ var QueryString = function () {
 				// Edit-016
 				//if (adCompleted == Math.round($scope.activeCampaigns.length / 4)) {
 				// Edit-017
-				if (adCompleted == 4) {
+				if (adCompleted == 2) {
 					completedPromo();
 				} else if ($scope.client.autoPlaylist === true) {
 					$timeout(function () {
