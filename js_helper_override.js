@@ -16,6 +16,7 @@
 	Edit-018 - Fixed error where adCompleted wasn't incrementing (014)
 	Edit-019 - Added timeout to beginning. If this page doesn't close by then due to completion, force it closed.
 	Edit-020 - Resync to github
+	Edit-021 - Changed to 4 video completion from 2
 */
 
 /* AB front-end logic */
@@ -1191,8 +1192,8 @@ var QueryString = function () {
 
 				// Edit-016
 				//if (adCompleted == Math.round($scope.activeCampaigns.length / 4)) {
-				// Edit-017
-				if (adCompleted == 2) {
+				// Edit-017, Edit-021
+				if (adCompleted == 4) {
 					completedPromo();
 				} else if ($scope.client.autoPlaylist === true) {
 					$timeout(function () {
