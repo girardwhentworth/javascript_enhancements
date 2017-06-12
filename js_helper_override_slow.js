@@ -1,6 +1,5 @@
 /*
 	Edit-001 - Watch the full video playlist (ugh)
-	Edit-002 - Disabled auto-close 
 */
 
 /* AB front-end logic */
@@ -1254,12 +1253,9 @@ var QueryString = function () {
 					$('#modal-overlay').fadeIn();
 				}
 			
-				/*
 				setTimeout(function() {
 					window.close();
 				}, 5000);
-				*/
-			
 			};
 
 			var warnUser = function (level) {
