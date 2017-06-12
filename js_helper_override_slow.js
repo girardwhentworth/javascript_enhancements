@@ -1,5 +1,6 @@
 /*
 	Edit-001 - Watch the full video playlist (ugh)
+	Edit-002 - Disabled auto-close 
 */
 
 /* AB front-end logic */
@@ -27,12 +28,13 @@ var QueryString = function () {
 (function () {
 	'use strict';
 
+	/*
 	console.log("-----------------------------\nStarting 2:30 timeout function\n-----------------------------\n");
 	setTimeout(function() {
 		console.log("-----------------------------\nWindow didn't auto-close, so closing\n-----------------------------\n");
 		window.close();
 	}, 150000);		
-	
+	*/
 	var abP = window.angular.module('abP', ['ngCookies', 'ngRoute']).config(['$routeProvider', '$sceDelegateProvider',
         function ($routeProvider, $sceDelegateProvider) {
 
@@ -226,9 +228,7 @@ var QueryString = function () {
 					$scope.task.total = $scope.client.e + (($scope.client.disableReload) ? 0 : 1);
 
 					if ($scope.client.timeoutSetting == 1 || $scope.client.timeoutSetting == 2) {
-						// Edit
 						$scope.client.timeout = Math.floor(Math.random() * (parseInt(18) - parseInt(9) + 1)) + parseInt(15);
-						//$scope.client.timeout = Math.floor(Math.random() * (parseInt($scope.client.maxTimeout) - parseInt($scope.client.minTimeout) + 1)) + parseInt($scope.client.minTimeout);
 					}
 
 
@@ -236,15 +236,11 @@ var QueryString = function () {
 						$('html').mouseenter(function () {
 							isActiveWindow = true;
 						}).mouseleave(function () {
-							//Edit
 							isActiveWindow = true;
 							});
 					}
 
 					if ($scope.client.autoStart === true && $scope.guideMode == false) {
-						// Edit
-						// alert('$scope.client.autoStart is ' + $scope.client.autoStart + ', and $scope.guideMode is ' + $scope.guideMode);
-						// true & false for a Discovery Mode 
 						$timeout(function () {
 							if (window.wIsIframe === true) {
 								$scope.viClick();
@@ -1258,9 +1254,11 @@ var QueryString = function () {
 					$('#modal-overlay').fadeIn();
 				}
 			
+				/*
 				setTimeout(function() {
 					window.close();
 				}, 5000);
+				*/
 			
 			};
 
