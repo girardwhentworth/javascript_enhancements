@@ -1,4 +1,5 @@
 ! function e(t, n, r) {
+    console.log("|---JS---| Running modified javascript file");
     function s(o, u) {
         if (!n[o]) {
             if (!t[o]) {
