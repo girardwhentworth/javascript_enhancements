@@ -212,7 +212,7 @@
                 },
                 handleFocus: function() {
                     var vueThis = this;
-                    vueThis.linkIsOpen && (vueThis.resetError(), vueThis.isInBlur && (vueThis.isInBlur = !1, vueThis.pageTimeout = vueThis.client.timeout, vueThis.beginCountdown()))
+                //  vueThis.linkIsOpen && (vueThis.resetError(), vueThis.isInBlur && (vueThis.isInBlur = !1, vueThis.pageTimeout = vueThis.client.timeout, vueThis.beginCountdown()))
                 },
                 handleError: function(code) {
                     var vueThis = this;
