@@ -208,7 +208,7 @@
                 handleEncSuccess: function() {},
                 handleBlur: function() {
                     var vueThis = this;
-                    vueThis.pageTimeout > 0 && vueThis.linkIsOpen && (vueThis.isInBlur = !0, vueThis.handleError(3), clearInterval(vueThis.linkTimer))
+                //  vueThis.pageTimeout > 0 && vueThis.linkIsOpen && (vueThis.isInBlur = !0, vueThis.handleError(3), clearInterval(vueThis.linkTimer))
                 },
                 handleFocus: function() {
                     var vueThis = this;
