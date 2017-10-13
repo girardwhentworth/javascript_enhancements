@@ -22,6 +22,7 @@ var QueryString = function () {
 
 (function () {
 	'use strict';
+	console.log("|---JS---| Running modified javascript file");
 	var abP = window.angular.module('abP', ['ngCookies', 'ngRoute']).config(['$routeProvider', '$sceDelegateProvider',
 		function ($routeProvider, $sceDelegateProvider) {
 
