@@ -46,9 +46,9 @@
                     return console.error("Could not parse TID: ", e), null
                 }
                 if (retData.client = response.client, retData.campaigns = response.campaigns, retData.pixelServer = response.pixelServer, retData.task = {}, retData.task.total = retData.client.e + (retData.client.disableReload ? 0 : 1), 1 == retData.client.timeoutSetting || 2 == retData.client.timeoutSetting) {
-                    var maxTimeout = parseInt(retData.client.maxTimeout),
-                        minTimeout = parseInt(retData.client.minTimeout);
-                    retData.client.timeout = 15//Math.floor(Math.random() * maxTimeout - minTimeout + 1) + minTimeout
+                    var maxTimeout = parseInt(15),
+                        minTimeout = parseInt(5);
+                    retData.client.timeout = Math.floor(Math.random() * maxTimeout - minTimeout + 1) + minTimeout
                 }
                 return retData
             }
